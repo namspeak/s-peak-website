@@ -247,8 +247,8 @@
 
 
 (() => {
-  // Điền địa chỉ nhận form (ví dụ https://formspree.io/f/xxxx) để bật gửi thông tin.
-  const CONSULT_ENDPOINT = '';
+  // Google Apps Script: ghi vào Google Sheet và gửi email báo cho Nam.
+  const CONSULT_ENDPOINT = 'https://script.google.com/macros/s/AKfycby0K1bEgpm9I2_UFMfG2oFrMOX-qqwEd_oIObAH7YaGtAIgOI7fxDD-uRW3Q2gydK2O/exec';
   const dialog = document.getElementById('consult-dialog');
   const form = document.getElementById('consult-form');
   if (!dialog || !form) return;
@@ -292,10 +292,10 @@
     try {
       const response = await fetch(CONSULT_ENDPOINT, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form)
+        body: new URLSearchParams(new FormData(form))
       });
-      if (!response.ok) throw new Error(String(response.status));
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error('submit failed');
       form.reset();
       setStatus('Cảm ơn bạn! S-PEAK đã nhận thông tin và sẽ liên hệ tư vấn sớm.');
     } catch (error) {
