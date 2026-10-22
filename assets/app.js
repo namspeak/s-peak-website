@@ -66,7 +66,8 @@
       title: 'Biến chuyên môn thành một keynote có sức nhớ.',
       need: 'Xây một keynote hoặc Signature Talk từ chuyên môn của mình.',
       description: 'Lựa chọn ý tưởng cốt lõi, phát triển cấu trúc và tinh chỉnh trải nghiệm bạn muốn người nghe mang theo.',
-      path: '/chuong-trinh/s-peak-keynote/'
+      path: 'https://www.daretospeak.vn/s-peak/',
+      external: true
     },
     expert: {
       kicker: 'Ứng dụng thương mại · Expert to Client',
