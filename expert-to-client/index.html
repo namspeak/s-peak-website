@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e1e1e">
+  <meta name="description" content="Thực hành xác định khách hàng, xây khung chuyển đổi và cấu trúc keynote/pitch trên chính dịch vụ của bạn trong Expert to Client Workshop Series.">
+  <title>Expert to Client Workshop Series | Từ chuyên môn đến bài pitch thương mại</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1e1e1e;
+      --paper: #fff;
+      --mist: #f5f5f5;
+      --gold: #c5a059;
+      --gold-soft: #eadfc8;
+      --muted: #66635d;
+      --line: #dedbd4;
+      --content: 1200px;
+      --gutter: 24px;
+      --radius: 12px;
+      --display: "Oswald", "Arial Narrow", Arial, sans-serif;
+      --body: "Inter", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .container { width: min(calc(100% - 48px), var(--content)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #765a22;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: .005em;
+    }
+    h1 { max-width: 760px; margin-bottom: 22px; font-size: clamp(2.5rem, 5.4vw, 4.5rem); }
+    h2 { max-width: 790px; margin-bottom: 20px; font-size: clamp(2rem, 4vw, 3.25rem); }
+    h3 { margin-bottom: 10px; font-size: 1.45rem; }
+    .lead { max-width: 690px; font-size: clamp(1.05rem, 1.7vw, 1.2rem); line-height: 1.65; }
+    .muted { color: var(--muted); }
+    .section { padding: 104px 0; }
+    .section--mist { background: var(--mist); }
+    .section-intro { max-width: 780px; margin-bottom: 42px; }
+    .section-intro p:last-child { margin-bottom: 0; }
+    .btn {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--ink);
+      font: 800 15px/1.35 var(--body);
+      text-align: center;
+      text-decoration: none;
+      transition: background-color .18s ease, transform .18s ease;
+    }
+    .btn:hover { background: #d2b374; transform: translateY(-1px); }
+    .btn--dark {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .text-link { font-weight: 750; text-underline-offset: 4px; }
+    .arrow { color: var(--gold); font-size: 1.25em; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: #20201f;
+      color: var(--paper);
+      box-shadow: 0 6px 22px rgb(0 0 0 / 12%);
+    }
+    .header-inner {
+      display: flex;
+      min-height: 68px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .wordmark {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      text-decoration: none;
+    }
+    .wordmark img { width: 48px; height: 48px; object-fit: contain; }
+    .site-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); margin-left: auto; }
+    .site-nav a { color: #dbd9d5; font-size: 12px; font-weight: 650; text-decoration: none; transition: color .18s ease; }
+    .site-nav a:hover { color: #fff; }
+    .header-cta { min-height: 42px; padding: 10px 18px; font-size: 12px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      min-height: clamp(700px, calc(100svh - 68px), 900px);
+      align-items: center;
+      padding: 72px 0 76px;
+      background: #f7f4ee;
+      color: var(--ink);
+    }
+    .hero-media { position: absolute; z-index: 0; inset: 0 0 0 34%; overflow: hidden; }
+    .hero-media::after {
+      position: absolute;
+      content: "";
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgb(247 244 238 / 96%) 0%, rgb(247 244 238 / 86%) 22%, rgb(247 244 238 / 58%) 40%, rgb(247 244 238 / 20%) 58%, rgb(247 244 238 / 3%) 76%, transparent 100%),
+        linear-gradient(0deg, rgb(247 244 238 / 28%), transparent 24%);
+      pointer-events: none;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(140px, .55fr);
+      align-items: center;
+      gap: clamp(28px, 4vw, 60px);
+    }
+    .hero-copy { max-width: 820px; }
+    .hero .hero-badge {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      margin: 0 0 22px;
+      padding: 9px 13px;
+      border: 1px solid rgb(197 160 89 / 44%);
+      border-radius: 6px;
+      background: rgb(255 255 255 / 76%);
+      color: #765a22;
+      font-size: 11px;
+      letter-spacing: .09em;
+    }
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      color: #191918;
+      font: 800 clamp(3.35rem, 5.2vw, 5.25rem)/.99 var(--body);
+      letter-spacing: -.065em;
+    }
+    .hero h1 .hero-title-desktop { display: block; }
+    .hero h1 .hero-title-mobile { display: none; }
+    .hero h1 .hero-title-row { display: block; }
+    .hero h1 .hero-title-accent { color: #765a22; }
+    .hero-copy .lead { max-width: 610px; margin-bottom: 0; color: #55524d; font-size: clamp(1rem, 1.35vw, 1.12rem); }
+    .hero-meta {
+      display: flex;
+      max-width: 560px;
+      align-items: center;
+      gap: 15px;
+      margin-top: 22px;
+      padding: 15px 18px;
+      border: 1px solid rgb(197 160 89 / 30%);
+      border-left: 3px solid var(--gold);
+      border-radius: 9px;
+      background: rgb(255 255 255 / 80%);
+      box-shadow: 0 12px 32px rgb(47 36 22 / 7%);
+      backdrop-filter: blur(12px);
+    }
+    .hero-meta > strong.hero-meta-number { flex: 0 0 auto; color: #765a22; font-size: 25px; font-weight: 800; letter-spacing: -.06em; }
+    .hero-meta strong, .hero-meta span { display: block; }
+    .hero-meta strong { font-size: 12px; }
+    .hero-meta span { margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 24px; }
+    .hero-actions .btn { min-height: 52px; padding-inline: 21px; }
+    .hero-program-link { color: #393733; font-size: 13px; font-weight: 700; text-underline-offset: 4px; }
+    .trust-bar {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--mist);
+    }
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .trust-bar-inner > p { margin: 0; font-weight: 700; }
+    .trust-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(132px, 1fr));
+      gap: clamp(20px, 3vw, 40px);
+    }
+    .trust-stats > div { display: flex; flex-direction: column; gap: 2px; }
+    .trust-stats strong {
+      color: #8b6824;
+      font-family: var(--display);
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      line-height: 1.1;
+    }
+    .trust-stats span { color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .client-logos {
+      overflow: hidden;
+      padding: 28px 0 30px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .client-logos-header { margin-bottom: 18px; text-align: center; }
+    .client-logos-label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    .client-logos-viewport {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    }
+    .client-logos-track {
+      display: flex;
+      width: max-content;
+      animation: client-logo-scroll 64s linear infinite;
+      will-change: transform;
+    }
+    .client-logos-viewport:hover .client-logos-track { animation-play-state: paused; }
+    .client-logo-group {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: clamp(36px, 5vw, 72px);
+      padding: 0 clamp(24px, 3vw, 42px);
+    }
+    .client-logo {
+      display: grid;
+      width: clamp(100px, 10vw, 142px);
+      height: 58px;
+      flex: 0 0 auto;
+      place-items: center;
+    }
+    .client-logo img {
+      width: auto;
+      max-width: 100%;
+      max-height: 42px;
+      object-fit: contain;
+      opacity: .76;
+      transition: opacity .2s ease;
+    }
+    .client-logo:hover img { opacity: 1; }
+    .client-logo[data-tone="light"] { padding: 0; background: transparent; }
+    .client-logo[data-tone="light"] img { max-height: 42px; opacity: 1; }
+    @keyframes client-logo-scroll {
+      to { transform: translateX(-50%); }
+    }
+
+    .problem-grid, .offer-grid, .register-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+      align-items: center;
+      gap: clamp(40px, 7vw, 96px);
+    }
+    .problem-copy p { max-width: 680px; }
+    .signals { display: grid; gap: 0; margin: 28px 0 0; padding: 0; list-style: none; }
+    .problem-signals {
+      margin: 0;
+      padding: 10px 26px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper);
+      box-shadow: 0 14px 34px rgb(30 30 30 / 5%);
+    }
+    .problem-signals li:first-child { border-top: 0; }
+    .signals li {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      font-weight: 650;
+    }
+    .check { color: #8b6824; font-weight: 900; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 42px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    .flow-item { position: relative; min-height: 190px; padding: 28px 25px; }
+    .flow-item + .flow-item { border-left: 1px solid var(--line); }
+    .flow-item:not(:last-child)::after {
+      position: absolute;
+      z-index: 1;
+      top: 34px; right: -13px;
+      display: grid;
+      width: 25px; height: 25px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--ink);
+      content: "›";
+      font-size: 22px;
+      line-height: 1;
+    }
+    .flow-item b { display: block; margin-bottom: 12px; font-family: var(--display); font-size: 1.25rem; }
+    .flow-item p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin: 42px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: steps;
+    }
+    .steps li { position: relative; padding: 0 34px 0 0; counter-increment: steps; }
+    .steps li + li { padding-left: 34px; border-left: 1px solid var(--line); }
+    .step-no { display: block; margin-bottom: 24px; color: #8b6824; font-family: var(--display); font-size: 2.25rem; }
+    .steps p { margin-bottom: 0; color: var(--muted); }
+
+    .offer-copy p { max-width: 650px; }
+    .practice-list { display: grid; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .practice-list li { display: flex; gap: 12px; }
+    .practice-list li::before { color: #8b6824; content: "—"; font-weight: 800; }
+    .price-card {
+      padding: clamp(28px, 4vw, 44px);
+      border-top: 4px solid var(--gold);
+      background: var(--paper);
+      box-shadow: 0 16px 40px rgb(30 30 30 / 7%);
+    }
+    .price-math { margin-bottom: 26px; color: var(--muted); font-size: 15px; }
+    .regular-price { margin: 0 0 4px; color: var(--muted); }
+    .regular-price s { text-decoration-thickness: 1px; }
+    .special-label { margin: 20px 0 0; color: var(--muted); font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .zero-price { margin: 0; color: var(--ink); font-family: var(--display); font-size: clamp(4.5rem, 8vw, 6rem); line-height: 1; }
+    .condition { margin: 16px 0 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
+
+    .process-note {
+      display: inline-block;
+      margin-bottom: 26px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .04em;
+    }
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .process-card { min-height: 220px; padding: 28px; border: 1px solid var(--line); background: var(--paper); }
+    .process-card .step-no { margin-bottom: 20px; font-size: 2rem; }
+
+    .founder-section { background: #f1efe9; }
+    .founder-card {
+      display: grid;
+      grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+      box-shadow: 0 18px 50px rgb(30 30 30 / 8%);
+    }
+    .founder-portrait {
+      position: relative;
+      min-height: 690px;
+      overflow: hidden;
+      background: #d5d4ca;
+    }
+    .founder-portrait img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .founder-copy { align-self: center; padding: clamp(34px, 5.4vw, 72px); }
+    .founder-copy h2 { margin-bottom: 8px; font-size: clamp(2.7rem, 5vw, 4.8rem); }
+    .founder-role { margin-bottom: 28px; color: #8b6824; font-size: 13px; font-weight: 800; letter-spacing: .08em; line-height: 1.5; text-transform: uppercase; }
+    .founder-copy > p:not(.founder-role) { max-width: 650px; color: var(--muted); }
+    .founder-principle { margin: 32px 0; padding: 10px 0 10px 22px; border-left: 4px solid var(--gold); color: #765a22; font-size: clamp(1.05rem, 1.7vw, 1.25rem); font-weight: 700; line-height: 1.55; }
+    .founder-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+    .founder-stat { min-height: 118px; padding: 18px 16px; border: 1px solid var(--gold-soft); border-radius: 12px; box-shadow: 0 8px 20px rgb(30 30 30 / 4%); }
+    .founder-stat strong { display: block; margin-bottom: 5px; color: #8b6824; font-family: var(--display); font-size: clamp(1.45rem, 2.2vw, 1.9rem); line-height: 1.1; }
+    .founder-stat span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
+
+    .proof-section { background: var(--ink); color: var(--paper); }
+    .proof-section .eyebrow { color: var(--gold); }
+    .proof-section .lead { color: #e6e3dc; }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+    .case-card { min-height: 225px; padding: 25px; border: 1px dashed rgb(197 160 89 / 65%); }
+    .case-card span { display: block; margin-bottom: 36px; color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .13em; }
+    .case-card p { margin-bottom: 0; color: #d1cec8; font-size: 14px; }
+
+    .faq-list { max-width: 900px; border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      display: flex;
+      width: 100%;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 4px;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font: 750 16px/1.45 var(--body);
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-icon { flex: 0 0 auto; color: #765a22; font-size: 23px; transition: transform .18s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-width: 780px; padding: 0 40px 22px 4px; color: var(--muted); }
+    .faq-answer p { margin: 0; }
+    .faq-cta { margin-top: 34px; }
+
+    .register { background: var(--ink); color: var(--paper); }
+    .register .eyebrow { color: var(--gold); }
+    .register h2 { max-width: 670px; }
+    .register .lead { color: #e6e3dc; }
+    .register-summary { padding: 28px; border: 1px solid rgb(255 255 255 / 24%); }
+    .register-summary p { margin-bottom: 10px; }
+    .register-summary .zero-price { color: var(--gold); font-size: 4.4rem; }
+    .register-summary .condition { border-color: rgb(255 255 255 / 24%); color: #e6e3dc; }
+    .register-actions { margin-top: 24px; }
+
+    .modal-open { overflow: hidden; }
+    .registration-modal {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: rgb(18 18 18 / 72%);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease, visibility .2s ease;
+    }
+    .registration-modal.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .registration-dialog {
+      position: relative;
+      width: min(100%, 560px);
+      max-height: min(92vh, 900px);
+      overflow-y: auto;
+      padding: clamp(28px, 5vw, 44px);
+      border: 1px solid rgb(255 255 255 / 55%);
+      border-radius: 18px;
+      background: linear-gradient(125deg, #fff 0%, #fffdfa 58%, #f8f0e2 100%);
+      box-shadow: 0 28px 90px rgb(0 0 0 / 30%);
+      overscroll-behavior: contain;
+    }
+    .registration-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgb(255 255 255 / 85%);
+      color: var(--ink);
+      font: 400 26px/1 var(--body);
+      cursor: pointer;
+    }
+    .registration-kicker {
+      margin: 0 52px 14px 0;
+      color: #8b6824;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .registration-dialog h2 { max-width: 460px; margin-bottom: 12px; font-size: clamp(2rem, 5vw, 2.8rem); }
+    .registration-intro { margin-bottom: 24px; color: var(--muted); font-size: 15px; }
+    .registration-form { display: grid; gap: 16px; }
+    .registration-field { display: grid; gap: 7px; }
+    .registration-field label { font-size: 13px; font-weight: 700; }
+    .registration-field input,
+    .registration-field select {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid #d9d4c9;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      font: 400 15px/1.4 var(--body);
+    }
+    .registration-field input::placeholder { color: #89857e; }
+    .registration-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .registration-submit { width: 100%; margin-top: 5px; }
+    .registration-status {
+      margin: 14px 0 0;
+      padding: 11px 13px;
+      border-left: 3px solid var(--gold);
+      background: #f3eee4;
+      color: #615438;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .registration-safe-note { margin: 14px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; text-align: center; }
+
+    .site-footer { padding: 30px 0 90px; background: #151515; color: #d8d5cf; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-inner p { margin: 0; font-size: 13px; }
+    .footer-contact { color: var(--gold); font-weight: 700; text-underline-offset: 4px; }
+
+    .persistent-cta {
+      position: fixed; z-index: 20; right: 0; bottom: 0; left: 0;
+      display: flex; justify-content: center;
+      padding: 12px 24px calc(12px + env(safe-area-inset-bottom));
+      border-top: 1px solid rgb(255 255 255 / 12%);
+      background: rgb(30 30 30 / 96%); backdrop-filter: blur(12px);
+      opacity: 0; pointer-events: none; transform: translateY(105%);
+      transition: opacity .24s ease, transform .24s ease;
+    }
+    .persistent-cta.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .persistent-cta .btn { width: auto; max-width: min(100%, 560px); margin-inline: auto; }
+    html.motion-enabled .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity .52s ease, transform .52s cubic-bezier(.2,.7,.2,1);
+    }
+    html.motion-enabled .reveal.is-visible { opacity: 1; transform: none; }
+    .flow-item:nth-child(3n + 2),
+    .steps li:nth-child(3n + 2),
+    .process-card:nth-child(3n + 2),
+    .case-card:nth-child(3n + 2) { transition-delay: 70ms; }
+
+    @media (max-width: 800px) {
+      .container { width: min(calc(100% - 40px), var(--content)); }
+      .section { padding: 72px 0; }
+      .header-inner { min-height: 64px; gap: 12px; }
+      .wordmark img { width: 44px; height: 44px; }
+      .site-nav { display: none; }
+      .header-cta { display: inline-flex; min-height: 40px; padding: 9px 13px; font-size: 11px; }
+      .client-logos { padding: 22px 0 24px; }
+      .client-logos-header { margin-bottom: 14px; }
+      .client-logo-group { gap: 30px; padding-inline: 20px; }
+      .client-logo { width: 96px; height: 48px; }
+      .client-logo img { max-height: 34px; }
+      .hero { display: block; min-height: 0; padding: 38px 0 0; }
+      .hero-grid, .problem-grid, .offer-grid, .register-grid { grid-template-columns: 1fr; gap: 34px; }
+      .hero-grid { display: block; }
+      .hero h1 .hero-title-desktop { display: none; }
+      .hero h1 .hero-title-mobile { display: block; }
+      .hero .hero-badge { margin-bottom: 18px; font-size: 10px; }
+      .hero h1 { max-width: 680px; margin-bottom: 17px; font-size: clamp(2.6rem, 7.4vw, 3.65rem); line-height: 1.02; letter-spacing: -.065em; }
+      .hero-copy .lead { font-size: 15px; line-height: 1.6; }
+      .hero-meta { gap: 12px; margin-top: 18px; padding: 13px 14px; }
+      .hero-meta > strong.hero-meta-number { font-size: 23px; }
+      .hero-meta strong { font-size: 11px; }
+      .hero-meta span { font-size: 10px; }
+      .hero-actions { gap: 14px; margin-top: 20px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-program-link { display: inline-block; }
+      .hero-media { position: relative; inset: auto; width: 100%; height: clamp(320px, 78vw, 460px); margin-top: 32px; }
+      .hero-media img { object-position: 50% 50%; }
+      .hero-media::after { background: linear-gradient(0deg, rgb(247 244 238 / 16%), transparent 30%); }
+      .trust-bar { padding: 20px 0; }
+      .trust-bar-inner { align-items: flex-start; flex-direction: column; gap: 14px; }
+      .trust-bar-inner > p { font-size: 13px; }
+      .trust-stats { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .trust-stats strong { font-size: 1.45rem; }
+      .trust-stats span { font-size: 11px; }
+      .flow { grid-template-columns: 1fr; }
+      .flow-item { min-height: 0; padding: 22px; }
+      .flow-item + .flow-item { border-top: 1px solid var(--line); border-left: 0; }
+      .flow-item:not(:last-child)::after { top: auto; right: 20px; bottom: -13px; transform: rotate(90deg); }
+      .steps, .process-list, .case-grid { grid-template-columns: 1fr; }
+      .steps { gap: 28px; }
+      .steps li, .steps li + li { padding: 0; border: 0; }
+      .step-no { margin-bottom: 12px; }
+      .process-card { min-height: 0; }
+      .founder-card { grid-template-columns: 1fr; }
+      .founder-portrait { min-height: 0; aspect-ratio: 4 / 5; }
+      .founder-portrait img { object-position: center 8%; }
+      .founder-copy { padding: 30px 26px; }
+      .founder-copy h2 { font-size: clamp(2.65rem, 12vw, 3.5rem); }
+      .founder-role { margin-bottom: 22px; font-size: 11px; }
+      .founder-principle { margin: 26px 0; }
+      .founder-stats { gap: 9px; margin-top: 24px; }
+      .founder-stat { min-height: 104px; padding: 14px 11px; }
+      .founder-stat span { font-size: 11px; }
+      .case-card { min-height: 175px; }
+      .case-card span { margin-bottom: 20px; }
+      .price-card { padding: 28px 24px; }
+      .register-summary { padding: 22px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .site-footer { padding-bottom: 110px; }
+    }
+    @media (max-width: 420px) {
+      .container { width: min(calc(100% - 32px), var(--content)); }
+      .hero-actions .btn, .price-card .btn, .faq-cta .btn, .register-actions .btn { width: 100%; }
+      .persistent-cta { padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); }
+      .persistent-cta .btn { width: min(100%, 560px); }
+      .registration-modal { align-items: center; padding: 8px; }
+      .registration-dialog { max-height: calc(100dvh - 16px); padding: 30px 22px 24px; border-radius: 16px; }
+      .registration-close { top: 12px; right: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .client-logos-track { animation: none; }
+      .client-logos-viewport { overflow-x: auto; }
+      .client-logo-group[aria-hidden="true"] { display: none; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top" aria-label="S-PEAK — về đầu trang">
+        <img src="assets/logos/speak-logo.png" alt="S-PEAK with Nam Nguyen" width="48" height="48">
+      </a>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="#problem-title">Dành cho ai?</a>
+        <a href="#process-title">Chương trình</a>
+        <a href="#founder">Giảng viên</a>
+        <a href="#faq-title">FAQ</a>
+      </nav>
+      <a class="btn header-cta" href="#register" data-open-registration>Đăng ký ngay</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-badge">EXPERT TO CLIENT · CHUỖI 3 WORKSHOP</p>
+          <h1 id="hero-title">
+            <span class="hero-title-desktop">
+              <span class="hero-title-row">Từ chuyên môn thật</span>
+              <span class="hero-title-row">đến bài pitch</span>
+              <span class="hero-title-row hero-title-accent">có cấu trúc</span>
+            </span>
+            <span class="hero-title-mobile">
+              <span class="hero-title-row">Từ</span>
+              <span class="hero-title-row">chuyên môn thật</span>
+              <span class="hero-title-row">đến</span>
+              <span class="hero-title-row hero-title-accent">bài pitch có cấu trúc</span>
+            </span>
+          </h1>
+          <p class="lead">Chuẩn bị cho lần bán hàng trên sân khấu tiếp theo bằng cách xác định đúng khách hàng, kết nối nhu cầu với dịch vụ và thực hành cấu trúc bài nói thương mại trên chính dịch vụ của bạn.</p>
+          <div class="hero-meta" aria-label="Nội dung chuỗi workshop">
+            <strong class="hero-meta-number" aria-hidden="true">03</strong>
+            <div>
+              <strong>Workshop thực hành theo chuỗi</strong>
+              <span>Từ chân dung khách hàng đến bài pitch thương mại</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="#register" data-open-registration>Đăng ký tham gia <span aria-hidden="true">→</span></a>
+            <a class="hero-program-link" href="#process-title">Xem lộ trình 3 ngày ↓</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/team/2809VVT_118.JPG" alt="Nam Nguyễn đứng trước khán phòng học viên trong buổi đào tạo trực tiếp" width="6000" height="4000" fetchpriority="high">
+      </div>
+    </section>
+
+    <section id="trust-bar" class="trust-bar" aria-label="Kinh nghiệm của Nam Nguyễn">
+      <div class="container trust-bar-inner">
+        <p>Nam Nguyễn · Influential speaking coach · Founder S-PEAK</p>
+        <div class="trust-stats">
+          <div><strong>14+</strong><span>Năm kinh nghiệm</span></div>
+          <div><strong>11.000+</strong><span>Giờ đào tạo</span></div>
+          <div><strong>1.200+</strong><span>Giờ khai vấn</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="client-logos" class="client-logos" aria-label="Các tổ chức Nam Nguyễn từng đào tạo">
+      <div class="client-logos-header">
+        <p class="client-logos-label">Các tổ chức Nam Nguyễn từng đào tạo</p>
+      </div>
+      <div class="client-logos-viewport">
+        <div class="client-logos-track">
+          <div class="client-logo-group">
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hsbc.png" alt="HSBC" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/vietinbank.png" alt="VietinBank" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hitachi.png" alt="Hitachi" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/lsp.png" alt="LSP" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/cegos.png" alt="Cegos" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/sunlife.png" alt="Sun Life" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/siemens-energy.png" alt="Siemens Energy" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/fit.png" alt="FIT Wealth for Life" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hoanmy.png" alt="Hoan My" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/abbott.png" alt="Abbott" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ocb.png" alt="OCB" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/aeon-mall.png" alt="AEON MALL" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/fpt-software.png" alt="FPT Software" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ila.png" alt="ILA Education for Life" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ninjavan.png" alt="Ninja Van" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/efl.png" alt="EFL" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/manabie.png" alt="Manabie" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/geocomply.png" alt="GeoComply" loading="lazy" decoding="async"></div>
+<div class="client-logo" data-tone="light"><img src="https://www.daretospeak.vn/assets/logos/clients/fgt-white.png" alt="FGL" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/vsip.png" alt="VSIP" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="client-logo-group" aria-hidden="true">
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hsbc.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/vietinbank.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hitachi.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/lsp.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/cegos.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/sunlife.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/siemens-energy.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/fit.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/hoanmy.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/abbott.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ocb.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/aeon-mall.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/fpt-software.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ila.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/ninjavan.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/efl.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/manabie.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/geocomply.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo" data-tone="light"><img src="https://www.daretospeak.vn/assets/logos/clients/fgt-white.png" alt="" loading="lazy" decoding="async"></div>
+<div class="client-logo"><img src="https://www.daretospeak.vn/assets/logos/clients/vsip.png" alt="" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--mist" aria-labelledby="problem-title">
+      <div class="container problem-grid">
+        <div class="problem-copy">
+          
+          <h2 id="problem-title">Bạn có chuyên môn vững, nhưng bài nói đã giúp khách hiểu bước tiếp theo chưa?</h2>
+          <p>Bạn dành thời gian chuẩn bị một buổi workshop hoặc webinar. Bạn chia sẻ kiến thức, trả lời câu hỏi, giúp người nghe hiểu thêm về lĩnh vực của mình. Nhưng khi giới thiệu dịch vụ, bạn chưa rõ nên nối phần vừa chia sẻ với lời mời ra sao — hoặc lo rằng mình sẽ tạo cảm giác đang bán hàng quá trực diện.</p>
+          <p>Sau buổi chia sẻ, nhiều cuộc trò chuyện vẫn tiếp tục theo hình thức 1-on-1. Bạn lại giải thích chuyên môn, trình bày dịch vụ và trả lời những câu hỏi quen thuộc với từng người.</p>
+          <p class="muted">Điểm cần xem xét có thể không nằm ở lượng kiến thức bạn có, mà ở cách sắp xếp chúng thành một bài nói nối được nhu cầu khách hàng với giá trị dịch vụ và bước tiếp theo.</p>
+          <p style="margin:24px 0 0"><a class="text-link" href="#offer">Xem nội dung workshop <span class="arrow" aria-hidden="true">→</span></a></p>
+        </div>
+        <ul class="signals problem-signals" aria-label="Dấu hiệu bài nói chưa dẫn tới bước tiếp">
+          <li><span class="check" aria-hidden="true">✓</span><span>Webinar có nhiều nội dung, nhưng phần giới thiệu dịch vụ chưa thành một mạch rõ ràng.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Bạn chưa thoải mái khi mời người nghe bước tiếp sau phần chia sẻ.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Bạn thường lặp lại phần giải thích dịch vụ trong các cuộc tư vấn 1-on-1.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="outcome-title">
+      <div class="container">
+        <div class="section-intro">
+          
+          <h2 id="outcome-title">Biết mình cần nói gì, nói với ai và mời họ bước tiếp thế nào</h2>
+          <p class="lead">Trong Expert to Client Workshop Series, bạn thực hành trên chính dịch vụ của mình để làm rõ khách hàng mục tiêu, sắp xếp chuyên môn thành cấu trúc keynote hoặc pitch, rồi kết nối phần chia sẻ với lời mời phù hợp.</p>
+        </div>
+        <div class="flow" aria-label="Luồng từ nhu cầu khách hàng đến bước tiếp theo">
+          <div class="flow-item"><b>Need</b><p>Làm rõ nhóm khách hàng và nhu cầu phù hợp với dịch vụ.</p></div>
+          <div class="flow-item"><b>Message</b><p>Sắp xếp chuyên môn thành một mạch trình bày có chủ đích.</p></div>
+          <div class="flow-item"><b>Service</b><p>Kết nối phần chia sẻ với giá trị dịch vụ của bạn.</p></div>
+          <div class="flow-item"><b>Next step</b><p>Xác định bước tiếp theo phù hợp và hướng bán hàng theo nhóm.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--mist" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-intro">
+          
+          <h2 id="method-title">Một bài pitch có chủ đích bắt đầu từ khách hàng, không phải từ slide</h2>
+          <p class="lead">Chuỗi workshop kết nối việc hiểu khách hàng mục tiêu, xây khung chuyển đổi và thực hành trình bày dịch vụ. Bạn làm trên chính dịch vụ của mình để nối hiểu biết về khách hàng với cấu trúc keynote/pitch và bước tiếp theo.</p>
+        </div>
+        <ol class="steps">
+          <li><span class="step-no">01</span><h3>Hiểu khách hàng</h3><p>Làm rõ nhóm khách hàng mục tiêu và nhu cầu cần được giải quyết.</p></li>
+          <li><span class="step-no">02</span><h3>Xây khung chuyển đổi</h3><p>Xác định cách giới thiệu dịch vụ trong tư vấn 1-on-1 và mở hướng bán hàng theo nhóm.</p></li>
+          <li><span class="step-no">03</span><h3>Thực hành bài nói</h3><p>Sắp xếp chuyên môn thành keynote/pitch trên dịch vụ của chính bạn.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="offer" aria-labelledby="offer-title">
+      <div class="container offer-grid">
+        <div class="offer-copy">
+          
+          <h2 id="offer-title">Mang chính dịch vụ của bạn vào từng phần thực hành</h2>
+          <p class="lead">Chuỗi kéo dài 3 ngày. Nội dung hướng đến việc làm rõ chân dung khách hàng, kết nối nhu cầu với dịch vụ và thực hành cấu trúc bài nói thương mại trên chính dịch vụ của bạn.</p>
+          <ul class="practice-list">
+            <li>Làm rõ nhóm khách hàng phù hợp với dịch vụ.</li>
+            <li>Kết nối nhu cầu khách hàng với giá trị dịch vụ.</li>
+            <li>Thực hành cấu trúc keynote/pitch trên chính dịch vụ của bạn.</li>
+          </ul>
+        </div>
+        <aside class="price-card" aria-label="Mức phí tham gia chuỗi workshop">
+          <p class="eyebrow">Ưu đãi đăng ký trọn chuỗi</p>
+          <p class="price-math">500.000đ/buổi × 3 buổi = 1.500.000đ</p>
+          <p class="regular-price">Giá trọn chuỗi: <s>1.500.000đ</s></p>
+          <p class="special-label">Mức đăng ký đặc biệt</p>
+          <p class="zero-price">0đ</p>
+          <p class="condition">Áp dụng khi đăng ký chuỗi và cam kết tham gia đầy đủ cả 3 buổi.</p>
+          <a class="btn btn--dark" href="#register" data-open-registration>Đăng ký tham gia chuỗi Expert to Client Workshop Series <span aria-hidden="true">→</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--mist" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-intro">
+          
+          <h2 id="process-title">Ba ngày thực hành, từ hiểu khách hàng đến bài nói thương mại</h2>
+          <p class="lead">Mạch nội dung tổng quát đi từ chân dung khách hàng đến kết nối dịch vụ, rồi thực hành cấu trúc bài nói trên chính dịch vụ của bạn.</p>
+        </div>
+        <p class="process-note">MẠCH NỘI DUNG TỔNG QUÁT — CHƯA PHẢI SYLLABUS CHÍNH THỨC</p>
+        <ol class="process-list">
+          <li class="process-card"><span class="step-no">01</span><h3>Làm rõ chân dung khách hàng</h3><p class="muted">Xác định nhóm khách hàng và nhu cầu cần được giải quyết.</p></li>
+          <li class="process-card"><span class="step-no">02</span><h3>Kết nối nhu cầu với dịch vụ</h3><p class="muted">Sắp xếp cách giới thiệu dịch vụ và hướng bán hàng theo nhóm.</p></li>
+          <li class="process-card"><span class="step-no">03</span><h3>Thực hành cấu trúc bài nói</h3><p class="muted">Đưa chuyên môn vào một keynote/pitch có chủ đích.</p></li>
+        </ol>
+        <p class="muted" style="margin:22px 0 0;font-size:14px">Ngày, giờ, thời lượng từng buổi và hình thức học sẽ được bổ sung khi có thông tin chính thức.</p>
+      </div>
+    </section>
+
+    <section class="section founder-section" id="founder" aria-labelledby="founder-title">
+      <div class="container">
+        <article class="founder-card">
+          <div class="founder-portrait">
+            <img src="assets/team/nam-nguyen-tcm64.jpg" alt="Nam Nguyễn" loading="lazy" decoding="async">
+          </div>
+          <div class="founder-copy">
+            <h2 id="founder-title">Nam Nguyễn</h2>
+            <p class="founder-role">Influential speaking coach · Facilitator · Founder S-PEAK</p>
+            <p>Nam thiết kế và trực tiếp hướng dẫn Expert to Client Workshop Series, giúp chuyên gia chuyển chuyên môn thành bài pitch có cấu trúc: hiểu khách hàng, kết nối nhu cầu với dịch vụ và mời họ bước tiếp phù hợp.</p>
+            <p>Với hơn 14 năm kinh nghiệm, 11.000+ giờ đào tạo và 1.200+ giờ khai vấn, chương trình tập trung vào tình huống thật, thực hành trên chính dịch vụ của bạn và phản hồi để tinh chỉnh bài nói.</p>
+            <blockquote class="founder-principle">Một bài pitch có chủ đích bắt đầu từ khách hàng, không phải từ slide.</blockquote>
+            <div class="founder-stats" aria-label="Kinh nghiệm của Nam Nguyễn">
+              <div class="founder-stat"><strong>14+</strong><span>Năm kinh nghiệm</span></div>
+              <div class="founder-stat"><strong>11.000+</strong><span>Giờ đào tạo</span></div>
+              <div class="founder-stat"><strong>1.200+</strong><span>Giờ khai vấn</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section proof-section" aria-labelledby="proof-title">
+      <div class="container">
+        <div class="section-intro">
+          
+          <h2 id="proof-title">Những thay đổi cụ thể khi chuyên gia đưa bài nói vào thực tế</h2>
+          <p class="lead">Các vị trí case study bên dưới đang chờ đối chiếu bằng chứng gốc, bối cảnh và quyền sử dụng. Chưa có kết quả nào được công bố ở đây.</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card"><span>CASE STUDY 01</span><h3>Đang chờ xác minh</h3><p>Thêm nội dung đã được xác nhận và cho phép sử dụng trước khi xuất bản.</p></article>
+          <article class="case-card"><span>CASE STUDY 02</span><h3>Đang chờ xác minh</h3><p>Thêm nội dung đã được xác nhận và cho phép sử dụng trước khi xuất bản.</p></article>
+          <article class="case-card"><span>CASE STUDY 03</span><h3>Đang chờ xác minh</h3><p>Thêm nội dung đã được xác nhận và cho phép sử dụng trước khi xuất bản.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--mist" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-intro">
+          
+          <h2 id="faq-title">Những câu hỏi bạn có thể cân nhắc trước khi đăng ký</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1"><span>Tôi chưa từng xây bài pitch cho dịch vụ của mình thì có tham gia được không?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden><p>Chuỗi workshop dành cho người đã có chuyên môn hoặc dịch vụ muốn giới thiệu. Bạn sẽ thực hành cấu trúc keynote/pitch trên chính dịch vụ của mình.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2"><span>Dịch vụ của tôi thuộc một lĩnh vực ngách thì các công cụ có áp dụng được không?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden><p>Bạn thực hành công cụ và framework trên nhóm khách hàng, nhu cầu và dịch vụ cụ thể của mình.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3"><span>Tôi lo bài nói sẽ cứng hoặc nghe quá bán hàng.</span><span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden><p>Trọng tâm là tạo cấu trúc kết nối nhu cầu khách hàng với dịch vụ và bước tiếp theo. Cách diễn đạt vẫn cần phù hợp với phong cách của bạn.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4"><span>Điều kiện nhận mức 0đ là gì?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden><p>Mức 0đ áp dụng khi bạn đăng ký cả chuỗi và cam kết tham gia đầy đủ cả 3 workshop.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5"><span>Chuỗi workshop kéo dài bao lâu?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden><p>Chuỗi diễn ra trong 3 ngày. Ngày giờ cụ thể, thời lượng mỗi ngày và hình thức học sẽ được cập nhật khi có thông tin chính thức.</p></div>
+          </div>
+        </div>
+        <div class="faq-cta"><a class="btn" href="#register" data-open-registration>Đăng ký tham gia chuỗi Expert to Client Workshop Series <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section register" id="register" aria-labelledby="register-title">
+      <div class="container register-grid">
+        <div>
+          
+          <h2 id="register-title">Đăng ký tham gia chuỗi Expert to Client Workshop Series</h2>
+          <p class="lead">Tham gia đầy đủ 3 workshop để thực hành trên chính dịch vụ của bạn.</p>
+        </div>
+        <div class="register-summary">
+          <p>Giá trọn chuỗi: <s>1.500.000đ</s></p>
+          <p class="special-label">Mức đăng ký đặc biệt</p>
+          <p class="zero-price">0đ</p>
+          <p class="condition">Điều kiện: đăng ký cả chuỗi và cam kết tham gia đầy đủ cả 3 workshop.</p>
+          <div class="register-actions">
+            <button class="btn" type="button" data-open-registration>Đăng ký tham gia chuỗi Expert to Client Workshop Series <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p><strong>Expert to Client Workshop Series</strong></p>
+        <p>Người hướng dẫn: Nam Nguyễn</p>
+        <p>Mức 0đ áp dụng khi đăng ký cả chuỗi và cam kết tham gia đủ 3 workshop.</p>
+      </div>
+      <a class="footer-contact" href="https://www.facebook.com/HuHaNa1508" target="_blank" rel="noopener noreferrer">Liên hệ Facebook <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+
+  <div class="persistent-cta" id="persistent-cta">
+    <a class="btn" href="#register" data-open-registration>Đăng ký tham gia chuỗi Expert to Client Workshop Series <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="registration-modal" id="registration-modal" aria-hidden="true">
+    <section class="registration-dialog" role="dialog" aria-modal="true" aria-labelledby="registration-title">
+      <button type="button" class="registration-close" aria-label="Đóng form đăng ký">×</button>
+      <div id="registration-form-view">
+        <p class="registration-kicker">Đăng ký Expert to Client Workshop Series</p>
+        <h2 id="registration-title">Giữ chỗ trong chuỗi workshop</h2>
+        <p class="registration-intro">Đăng ký cả chuỗi và tham gia đầy đủ 3 workshop để áp dụng mức đăng ký đặc biệt 0đ.</p>
+        <form id="registration-form" class="registration-form" method="post">
+          <div class="registration-honeypot" aria-hidden="true">
+            <label for="registration-website">Website</label>
+            <input id="registration-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="registration-field">
+            <label for="registration-name">Họ và tên <span aria-hidden="true">*</span></label>
+            <input id="registration-name" name="name" type="text" autocomplete="name" required placeholder="Ví dụ: Nguyễn Minh Anh">
+          </div>
+          <div class="registration-field">
+            <label for="registration-email">Email <span aria-hidden="true">*</span></label>
+            <input id="registration-email" name="email" type="email" autocomplete="email" required placeholder="ban@email.com">
+          </div>
+          <div class="registration-field">
+            <label for="registration-phone">Số điện thoại <span aria-hidden="true">*</span></label>
+            <input id="registration-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="09xx xxx xxx">
+          </div>
+          <div class="registration-field">
+            <label for="registration-role">Bạn đang là <span aria-hidden="true">*</span></label>
+            <select id="registration-role" name="role" required>
+              <option value="">Chọn một vai trò</option>
+              <option>Chuyên gia</option>
+              <option>Coach</option>
+              <option>Trainer</option>
+              <option>Solo-expert</option>
+              <option>Leader</option>
+              <option>Khác</option>
+            </select>
+          </div>
+          <input id="registration-offer" name="offer" type="hidden" value="Expert to Client Workshop Series">
+          <button id="registration-submit" class="btn registration-submit" type="submit">GỬI ĐĂNG KÝ <span aria-hidden="true">→</span></button>
+        </form>
+        <p id="registration-status" class="registration-status" role="status" aria-live="polite" hidden></p>
+        <p class="registration-safe-note">Thông tin của bạn chỉ được dùng để xác nhận đăng ký và gửi thông tin chương trình.</p>
+      </div>
+      <div id="registration-success" hidden>
+        <p class="registration-kicker">ĐĂNG KÝ THÀNH CÔNG</p>
+        <h2 id="registration-success-title">Cảm ơn bạn đã đăng ký</h2>
+        <p class="registration-intro">Ban tổ chức sẽ liên hệ xác nhận thông tin và hướng dẫn bước tiếp theo.</p>
+        <button type="button" class="btn" data-close-registration>Đóng</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var expanded = button.getAttribute("aria-expanded") === "true";
+        var panel = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", String(!expanded));
+        panel.hidden = expanded;
+      });
+    });
+
+    var heroSection = document.querySelector(".hero");
+    var registerSection = document.getElementById("register");
+    var footerSection = document.querySelector(".site-footer");
+    var persistentCta = document.getElementById("persistent-cta");
+
+    function updatePersistentCta() {
+      if (!heroSection || !registerSection || !footerSection || !persistentCta) return;
+      var heroPassed = heroSection.getBoundingClientRect().bottom < 0;
+      var registerRect = registerSection.getBoundingClientRect();
+      var footerRect = footerSection.getBoundingClientRect();
+      var registerVisible = registerRect.top < window.innerHeight && registerRect.bottom > 0;
+      var footerVisible = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+      persistentCta.classList.toggle("is-visible", heroPassed && !registerVisible && !footerVisible);
+    }
+
+    var stickyUpdateQueued = false;
+    window.addEventListener("scroll", function () {
+      if (stickyUpdateQueued) return;
+      stickyUpdateQueued = true;
+      window.requestAnimationFrame(function () {
+        updatePersistentCta();
+        stickyUpdateQueued = false;
+      });
+    }, { passive: true });
+    window.addEventListener("resize", updatePersistentCta);
+    updatePersistentCta();
+
+    var registrationModal = document.getElementById("registration-modal");
+    var registrationDialog = registrationModal ? registrationModal.querySelector(".registration-dialog") : null;
+    var registrationClose = registrationModal ? registrationModal.querySelector(".registration-close") : null;
+    var registrationForm = document.getElementById("registration-form");
+    var registrationFormView = document.getElementById("registration-form-view");
+    var registrationSuccess = document.getElementById("registration-success");
+    var registrationStatus = document.getElementById("registration-status");
+    var registrationEndpoint = "https://script.google.com/macros/s/AKfycbybmHQejgLPJMWJjqqiPQ9j2uCOu8XjTBiEZLNDOgVho2BBmkCQDXHHOlcY7BpfN6lYrA/exec";
+    var registrationOpener = null;
+
+    function openRegistration(trigger) {
+      if (!registrationModal || !registrationClose) return;
+      registrationOpener = trigger;
+      if (registrationSuccess && !registrationSuccess.hidden) {
+        registrationSuccess.hidden = true;
+        registrationFormView.hidden = false;
+        if (registrationForm) registrationForm.reset();
+        var submitButton = document.getElementById("registration-submit");
+        if (submitButton) submitButton.disabled = false;
+      }
+      if (registrationStatus) {
+        registrationStatus.hidden = true;
+        registrationStatus.textContent = "";
+      }
+      registrationModal.classList.add("is-open");
+      registrationModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      registrationClose.focus();
+    }
+
+    function closeRegistration() {
+      if (!registrationModal || !registrationModal.classList.contains("is-open")) return;
+      registrationModal.classList.remove("is-open");
+      registrationModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (registrationOpener && typeof registrationOpener.focus === "function") registrationOpener.focus();
+    }
+
+    document.querySelectorAll("[data-open-registration]").forEach(function (trigger) {
+      trigger.addEventListener("click", function (event) {
+        event.preventDefault();
+        openRegistration(trigger);
+      });
+    });
+    if (registrationClose) registrationClose.addEventListener("click", closeRegistration);
+    document.querySelectorAll("[data-close-registration]").forEach(function (button) {
+      button.addEventListener("click", closeRegistration);
+    });
+    if (registrationModal) {
+      registrationModal.addEventListener("click", function (event) {
+        if (event.target === registrationModal) closeRegistration();
+      });
+    }
+    document.addEventListener("keydown", function (event) {
+      if (!registrationModal || !registrationModal.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        closeRegistration();
+        return;
+      }
+      if (event.key !== "Tab" || !registrationDialog) return;
+      var focusable = Array.prototype.slice.call(registrationDialog.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(function (element) { return !element.closest(".registration-honeypot"); });
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    if (registrationForm) {
+      registrationForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (!registrationForm.reportValidity()) return;
+        var submitButton = document.getElementById("registration-submit");
+        if (submitButton) submitButton.disabled = true;
+        if (registrationStatus) {
+          registrationStatus.hidden = false;
+          registrationStatus.textContent = "Đang gửi thông tin đăng ký…";
+        }
+        try {
+          await fetch(registrationEndpoint, {
+            method: "POST",
+            mode: "no-cors",
+            body: new URLSearchParams(new FormData(registrationForm))
+          });
+          if (registrationFormView) registrationFormView.hidden = true;
+          if (registrationSuccess) registrationSuccess.hidden = false;
+          if (registrationStatus) registrationStatus.hidden = true;
+          var successClose = registrationSuccess ? registrationSuccess.querySelector("[data-close-registration]") : null;
+          if (successClose) successClose.focus();
+        } catch (error) {
+          if (registrationFormView) registrationFormView.hidden = true;
+          if (registrationSuccess) registrationSuccess.hidden = false;
+          if (registrationStatus) registrationStatus.hidden = true;
+          var successClose = registrationSuccess ? registrationSuccess.querySelector("[data-close-registration]") : null;
+          if (successClose) successClose.focus();
+        }
+      });
+    }
+
+    var motionTargets = document.querySelectorAll(
+      ".hero-copy, .problem-copy > *, .section-intro, .flow-item, .steps li, .price-card, .process-card, .founder-portrait, .founder-copy, .founder-stat, .case-card, .faq-item, .faq-cta, .register-grid > *"
+    );
+    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if ("IntersectionObserver" in window && motionTargets.length && !prefersReducedMotion) {
+      document.documentElement.classList.add("motion-enabled");
+      var revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+      motionTargets.forEach(function (element) {
+        element.classList.add("reveal");
+        revealObserver.observe(element);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
