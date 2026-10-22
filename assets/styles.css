@@ -1724,3 +1724,13 @@ h3 {
 .consult-dialog .button { width: 100%; justify-content: center; margin-top: 4px; }
 .consult-status { min-height: 1.4em; margin: 12px 0 0; font-size: .88rem; color: var(--muted); }
 .consult-status.is-error { color: #b42318; }
+
+img.book-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1030 / 1526;
+  padding: 0;
+  object-fit: cover;
+  background: none;
+}
