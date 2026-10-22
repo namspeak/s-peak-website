@@ -48,7 +48,7 @@
 
   const programs = {
     dare: {
-      kicker: 'Điểm bắt đầu · DARE TO S-PEAK',
+      kicker: 'Khóa học · DARE TO S-PEAK',
       title: 'Bắt đầu bằng sự rõ ràng và tự tin.',
       need: 'Nói rõ ràng và tự tin hơn về chuyên môn của mình.',
       description: 'Làm rõ điều muốn truyền đạt, xây một khung có thể thực hành và dùng phản hồi để tinh chỉnh cách nói.',
@@ -56,26 +56,27 @@
       external: true
     },
     speak: {
-      kicker: 'Bản sắc · Chương trình S-PEAK',
-      title: 'Tìm ra cách nói mang dấu ấn của chính bạn.',
-      need: 'Phát triển phong cách nói tự nhiên và nhất quán với con người của mình.',
-      description: 'Quan sát bản thân, hiểu người nghe và chuyển điều bạn tin thành một cách thể hiện có chủ đích.',
-      path: '/chuong-trinh/s-peak/'
-    },
-    keynote: {
-      kicker: 'Bài nói chủ lực · S-PEAK Keynote',
+      kicker: 'Chuyên sâu · S-PEAK Keynote Masterclass',
       title: 'Biến chuyên môn thành một keynote có sức nhớ.',
       need: 'Xây một keynote hoặc Signature Talk từ chuyên môn của mình.',
       description: 'Lựa chọn ý tưởng cốt lõi, phát triển cấu trúc và tinh chỉnh trải nghiệm bạn muốn người nghe mang theo.',
       path: 'https://www.daretospeak.vn/s-peak/',
       external: true
     },
+    keynote: {
+      kicker: 'Group Coaching · S-PEAK Signature Program',
+      title: 'Cùng nhóm thực hành và hoàn thiện bài nói đặc trưng của bạn.',
+      need: 'Một lộ trình có nhóm đồng hành để phát triển Signature Talk.',
+      description: 'Liên hệ qua Fanpage để biết thêm thông tin về chương trình.',
+      path: 'https://web.facebook.com/speakbynamnguyen',
+      external: true
+    },
     expert: {
-      kicker: 'Ứng dụng thương mại · Expert to Client',
-      title: 'Từ chuyên môn thật đến bài pitch có cấu trúc.',
-      need: 'Kết nối bài nói với khách hàng và một bước tiếp theo rõ ràng.',
-      description: 'Làm rõ khách hàng, kết nối nhu cầu với dịch vụ và thực hành một lời mời phù hợp.',
-      path: '/expert-to-client/',
+      kicker: '1-1 Coaching & Mentoring',
+      title: 'Được đồng hành riêng theo mục tiêu của bạn.',
+      need: 'Sự hỗ trợ cá nhân hoá cho bài nói và hành trình phát triển của riêng mình.',
+      description: 'Liên hệ qua Fanpage để trao đổi về nhu cầu và hình thức phù hợp.',
+      path: 'https://web.facebook.com/speakbynamnguyen',
       external: true
     }
   };
