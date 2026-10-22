@@ -66,18 +66,18 @@
     keynote: {
       kicker: 'Group Coaching · S-PEAK Signature Program',
       title: 'Cùng nhóm thực hành và hoàn thiện bài nói đặc trưng của bạn.',
-      need: 'Một lộ trình có nhóm đồng hành để phát triển Signature Talk.',
-      description: 'Liên hệ qua Fanpage để biết thêm thông tin về chương trình.',
-      path: 'https://web.facebook.com/speakbynamnguyen',
-      external: true
+      need: 'Xây dựng một chương trình độc bản từ chuyên môn của bạn.',
+      description: 'Để lại thông tin để được tư vấn chi tiết về chương trình.',
+      form: true,
+      cta: 'Nhận tư vấn chi tiết'
     },
     expert: {
       kicker: '1-1 Coaching & Mentoring',
       title: 'Được đồng hành riêng theo mục tiêu của bạn.',
       need: 'Sự hỗ trợ cá nhân hoá cho bài nói và hành trình phát triển của riêng mình.',
-      description: 'Liên hệ qua Fanpage để trao đổi về nhu cầu và hình thức phù hợp.',
-      path: 'https://web.facebook.com/speakbynamnguyen',
-      external: true
+      description: 'Để lại thông tin để được tư vấn chi tiết về hình thức phù hợp.',
+      form: true,
+      cta: 'Nhận tư vấn chi tiết'
     }
   };
 
@@ -131,15 +131,26 @@
     title.textContent = program.title;
     need.textContent = program.need;
     description.textContent = program.description;
-    action.href = program.path;
-    if (program.external) {
+    action.firstChild.textContent = program.cta ? `${program.cta} ` : 'Khám phá chương trình ';
+    if (program.form) {
+      action.href = '#tu-van';
+      action.dataset.openConsult = program.kicker;
+      action.removeAttribute('target');
+      action.removeAttribute('rel');
+    } else {
+      delete action.dataset.openConsult;
+      action.href = program.path;
+    }
+    if (program.form) {
+      // handled by the consultation dialog
+    } else if (program.external) {
       action.target = '_blank';
       action.rel = 'noopener noreferrer';
     } else {
       action.removeAttribute('target');
       action.removeAttribute('rel');
     }
-    action.setAttribute('aria-label', `Khám phá ${program.kicker.split(' · ').pop()}`);
+    action.setAttribute('aria-label', `${program.cta || 'Khám phá'} ${program.kicker.split(' · ').pop()}`);
 
     flyout.dataset.activeProgram = key;
     flyout.classList.add('is-visible');
@@ -232,4 +243,65 @@
 
   updateHint();
   finePointer.addEventListener('change', updateHint);
+})();
+
+
+(() => {
+  // Điền địa chỉ nhận form (ví dụ https://formspree.io/f/xxxx) để bật gửi thông tin.
+  const CONSULT_ENDPOINT = '';
+  const dialog = document.getElementById('consult-dialog');
+  const form = document.getElementById('consult-form');
+  if (!dialog || !form) return;
+
+  const programField = form.querySelector('[name="program"]');
+  const programLabel = dialog.querySelector('[data-consult-program]');
+  const statusEl = form.querySelector('[data-consult-status]');
+  const submit = form.querySelector('button[type="submit"]');
+
+  const setStatus = (text, isError) => {
+    statusEl.textContent = text;
+    statusEl.classList.toggle('is-error', Boolean(isError));
+  };
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-open-consult]');
+    if (!trigger) return;
+    event.preventDefault();
+    const name = trigger.dataset.openConsult;
+    programField.value = name;
+    programLabel.textContent = name;
+    setStatus('');
+    dialog.showModal();
+    form.querySelector('input[name="name"]').focus();
+  });
+
+  dialog.querySelector('[data-consult-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    if (!CONSULT_ENDPOINT) {
+      setStatus('Biểu mẫu chưa được kết nối nên thông tin chưa được gửi đi. Vui lòng liên hệ qua Fanpage S-PEAK.', true);
+      return;
+    }
+    submit.disabled = true;
+    setStatus('Đang gửi thông tin…');
+    try {
+      const response = await fetch(CONSULT_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      setStatus('Cảm ơn bạn! S-PEAK đã nhận thông tin và sẽ liên hệ tư vấn sớm.');
+    } catch (error) {
+      setStatus('Chưa gửi được thông tin. Vui lòng thử lại hoặc liên hệ qua Fanpage S-PEAK.', true);
+    } finally {
+      submit.disabled = false;
+    }
+  });
 })();

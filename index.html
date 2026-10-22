@@ -264,5 +264,23 @@
       <p class="footer-note">Bản dựng nội dung demo · Chưa phải bản xuất bản</p>
     </div>
   </footer>
+
+  <dialog class="consult-dialog" id="consult-dialog" aria-labelledby="consult-title">
+    <form id="consult-form" method="post" novalidate>
+      <div class="consult-head">
+        <div>
+          <p class="eyebrow" data-consult-program></p>
+          <h2 id="consult-title">Nhận tư vấn chi tiết</h2>
+        </div>
+        <button class="flyout-close" type="button" data-consult-close aria-label="Đóng">×</button>
+      </div>
+      <input type="hidden" name="program" value="">
+      <label>Họ và tên<input name="name" type="text" autocomplete="name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+      <label>Số điện thoại<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+      <button class="button button--primary" type="submit">Gửi thông tin</button>
+      <p class="consult-status" data-consult-status role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
 </body>
 </html>
