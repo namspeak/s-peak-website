@@ -1707,7 +1707,8 @@ h3 {
   font-weight: 700;
 }
 
-.consult-dialog input:not([type="hidden"]) {
+.consult-dialog input:not([type="hidden"]),
+.consult-dialog select {
   display: block;
   width: 100%;
   margin-top: 6px;

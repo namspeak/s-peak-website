@@ -269,12 +269,19 @@
     <form id="consult-form" method="post" novalidate>
       <div class="consult-head">
         <div>
-          <p class="eyebrow" data-consult-program></p>
           <h2 id="consult-title">Nhận tư vấn chi tiết</h2>
         </div>
         <button class="flyout-close" type="button" data-consult-close aria-label="Đóng">×</button>
       </div>
-      <input type="hidden" name="program" value="">
+      <label>Chương trình bạn muốn được tư vấn
+        <select name="program" required>
+          <option value="" disabled selected>Chọn chương trình</option>
+          <option>Khóa học DARE TO S-PEAK</option>
+          <option>Chương trình chuyên sâu S-PEAK Keynote Masterclass</option>
+          <option>Group Coaching S-PEAK Signature Program</option>
+          <option>1-1 Coaching &amp; Mentoring</option>
+        </select>
+      </label>
       <label>Họ và tên<input name="name" type="text" autocomplete="name" required></label>
       <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
       <label>Số điện thoại<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>

@@ -254,7 +254,6 @@
   if (!dialog || !form) return;
 
   const programField = form.querySelector('[name="program"]');
-  const programLabel = dialog.querySelector('[data-consult-program]');
   const statusEl = form.querySelector('[data-consult-status]');
   const submit = form.querySelector('button[type="submit"]');
 
@@ -267,9 +266,9 @@
     const trigger = event.target.closest('[data-open-consult]');
     if (!trigger) return;
     event.preventDefault();
-    const name = trigger.dataset.openConsult;
-    programField.value = name;
-    programLabel.textContent = name;
+    const wanted = trigger.dataset.openConsult.split(' · ').pop().toLowerCase();
+    const match = Array.from(programField.options).find((o) => o.value && o.value.toLowerCase().includes(wanted.replace('1-1 coaching & mentoring', '1-1 coaching')));
+    programField.value = match ? match.value : '';
     setStatus('');
     dialog.showModal();
     form.querySelector('input[name="name"]').focus();
