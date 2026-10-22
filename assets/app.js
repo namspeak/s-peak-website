@@ -52,7 +52,8 @@
       title: 'Bắt đầu bằng sự rõ ràng và tự tin.',
       need: 'Nói rõ ràng và tự tin hơn về chuyên môn của mình.',
       description: 'Làm rõ điều muốn truyền đạt, xây một khung có thể thực hành và dùng phản hồi để tinh chỉnh cách nói.',
-      path: '/chuong-trinh/dare-to-speak/'
+      path: 'https://www.daretospeak.vn/',
+      external: true
     },
     speak: {
       kicker: 'Bản sắc · Chương trình S-PEAK',
