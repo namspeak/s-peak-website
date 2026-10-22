@@ -1734,3 +1734,26 @@ img.book-cover {
   object-fit: cover;
   background: none;
 }
+
+@keyframes node-drift-cw {
+  0%, 100% { translate: 0 -9px; }
+  25% { translate: 9px 0; }
+  50% { translate: 0 9px; }
+  75% { translate: -9px 0; }
+}
+
+@media (min-width: 721px) {
+  .program-node {
+    animation: node-drift-cw 14s linear infinite;
+  }
+
+  .program-node[data-program="speak"] { animation-delay: -3.5s; }
+  .program-node[data-program="keynote"] { animation-delay: -7s; }
+  .program-node[data-program="expert"] { animation-delay: -10.5s; }
+
+  .program-node:hover,
+  .program-node:focus-visible,
+  .program-node.is-active {
+    animation-play-state: paused;
+  }
+}
