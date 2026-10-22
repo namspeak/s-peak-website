@@ -277,11 +277,14 @@ h3 {
 
 .brand-logo {
   display: block;
+  align-self: flex-start;
   width: auto;
-  height: 40px;
+  height: 48px;
+  aspect-ratio: 420 / 290;
+  object-fit: contain;
 }
 
-.brand--footer .brand-logo { height: 46px; }
+.brand--footer .brand-logo { height: 54px; }
 
 .brand-name {
   font-size: 1.28rem;
