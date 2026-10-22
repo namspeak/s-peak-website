@@ -284,7 +284,7 @@ h3 {
   object-fit: contain;
 }
 
-.brand--footer .brand-logo { height: 54px; }
+.brand--footer .brand-logo { height: 48px; }
 
 .brand-name {
   font-size: 1.28rem;
@@ -1843,4 +1843,21 @@ img.book-cover {
 @keyframes gallery-right {
   from { transform: translateX(calc(-50% - 8px)); }
   to { transform: translateX(0); }
+}
+
+.brand {
+  align-items: stretch;
+}
+
+.brand-logo {
+  align-self: center;
+}
+
+.brand-note {
+  margin-top: 7px;
+  margin-right: -.12em;
+  letter-spacing: .12em;
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-character;
 }
