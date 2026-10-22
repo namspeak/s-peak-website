@@ -73,9 +73,9 @@
     },
     expert: {
       kicker: '1-1 Coaching & Mentoring',
-      title: 'Được đồng hành riêng theo mục tiêu của bạn.',
-      need: 'Sự hỗ trợ cá nhân hoá cho bài nói và hành trình phát triển của riêng mình.',
-      description: 'Để lại thông tin để được tư vấn chi tiết về hình thức phù hợp.',
+      title: 'Đồng hành để bạn phát triển và sống bền vững với nghề chuyên gia.',
+      need: 'Xây dựng sự nghiệp chuyên gia bền vững: không chỉ ở việc nói, mà còn ở chương trình của riêng mình và cách làm việc với khách hàng.',
+      description: 'Được đồng hành riêng để xây dựng chương trình của bạn, làm việc hiệu quả với khách hàng và phát triển sự nghiệp chuyên gia lâu dài.',
       form: true,
       cta: 'Nhận tư vấn chi tiết'
     }
