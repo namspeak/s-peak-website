@@ -65,9 +65,9 @@
     },
     keynote: {
       kicker: 'Group Coaching · S-PEAK Signature Program',
-      title: 'Cùng nhóm thực hành và hoàn thiện bài nói đặc trưng của bạn.',
-      need: 'Xây dựng một chương trình độc bản từ chuyên môn của bạn.',
-      description: 'Để lại thông tin để được tư vấn chi tiết về chương trình.',
+      title: 'Giúp bạn sở hữu một chương trình đào tạo Signature từ chính chuyên môn của mình.',
+      need: 'Xây dựng một chương trình đào tạo Signature độc bản từ chính chuyên môn của bạn.',
+      description: 'Cùng nhóm đồng hành để biến chuyên môn của bạn thành một chương trình đào tạo mang dấu ấn riêng. Để lại thông tin để được tư vấn chi tiết.',
       form: true,
       cta: 'Nhận tư vấn chi tiết'
     },
