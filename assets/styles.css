@@ -1861,3 +1861,30 @@ img.book-cover {
   text-align-last: justify;
   text-justify: inter-character;
 }
+
+.footer-contact {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  font-style: normal;
+}
+
+.footer-contact a {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--white);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.footer-contact a span {
+  min-width: 52px;
+  color: var(--orange);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.footer-contact a:hover { color: var(--orange); }
